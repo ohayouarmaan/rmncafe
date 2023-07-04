@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import Project from "../models/project";
 import About from "../models/about";
+import Contact from "../models/contact";
 
 const router = Router();
 router.get("/", (req: Request, res: Response) => {
@@ -30,5 +31,11 @@ router.get("/about", async (req: Request, res: Response) => {
     });
 });
 
+router.get("/contact", async (req: Request, res: Response) => {
+    const contact = await Contact.find({});
+    return res.json({
+        contact: contact
+    });
+});
 
 export default router;
