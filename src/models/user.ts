@@ -5,6 +5,7 @@ interface IUser {
     username: string;
     email: string;
     password: string;
+    isAdmin: boolean;
 }
 
 const UserSchema = new mongoose.Schema<IUser, Model<IUser>>({
@@ -19,6 +20,10 @@ const UserSchema = new mongoose.Schema<IUser, Model<IUser>>({
     password: {
         type: String,
         required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 });
 
