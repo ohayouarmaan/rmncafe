@@ -1,6 +1,8 @@
 import { Router, Request, Response } from "express";
+import INewRequest from "../custom-request-type";
 import * as bcrypt from "bcrypt"
 import jwt from "jsonwebtoken";
+import AuthHelper from "../helpers/auth";
 import User from "../models/user";
 const router = Router();
 
@@ -66,6 +68,12 @@ router.post("/signin", async (req: Request<{}, {}, UserTypeSignIn>, res: Respons
             error: e.message
         });
     };
+})
+
+router.get("/me", AuthHelper, (req: Request, res: Response) => {
+    return res.json({
+        message: `Hello ${(req as INewRequest).user}`
+    });
 })
 
 export default router;
