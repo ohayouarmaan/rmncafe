@@ -2,7 +2,7 @@ import { Router, Request, Response } from "express";
 import INewRequest from "../custom-request-type";
 import * as bcrypt from "bcrypt"
 import jwt from "jsonwebtoken";
-import AuthHelper from "../helpers/auth";
+import AuthHelper from "../helpers/isAuth";
 import User from "../models/user";
 const router = Router();
 
