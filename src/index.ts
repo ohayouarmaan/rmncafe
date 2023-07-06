@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+import cors from "cors";
 import PortfolioRouter from "./routes/portfolio";
 import BlogRouter from "./routes/blog";
 import AuthRouter from "./routes/auth";
@@ -12,6 +13,7 @@ config({"path": ".env"})
 app.use("/portfolio", PortfolioRouter);
 app.use("/blog", BlogRouter);
 app.use("/auth", AuthRouter);
+app.use(cors());
 
 (async () => {
     await PreRun();
