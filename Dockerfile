@@ -1,6 +1,6 @@
 FROM node:16
 
-EXPOSE $PORT
+EXPOSE 4000
 COPY ./ ./
 RUN npm install typescript
 RUN npm run build
