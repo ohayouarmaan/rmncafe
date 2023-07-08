@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
-    "build": "npm install -g typescript; tsc",
+    "build": "npm install -g typescript && tsc && cp package.json dist/ && npm install --prefix dist/",
     "watch": "tsc --watch",
     "start": "node dist/index.js"
   },
