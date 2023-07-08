@@ -7,6 +7,7 @@ import PreRun from "./prerun";
 import { config } from "dotenv";
 
 const app: Express = express();
+
 app.use(express.json());
 config({"path": ".env"})
 

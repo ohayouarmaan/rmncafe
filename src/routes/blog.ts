@@ -14,7 +14,13 @@ router.get("/", async (req: Request<{}, {}, {},{from: string; to: string;}>, res
                             .sort("datePublished");
     return res.json({
         blogs
-    })
+    });
+});
+
+router.get("/:id", async (req: Request<{id: string}>, res: Response) => {
+    console.log(req.params);
+    const blog = await Blog.findById(req.params.id);
+    return res.json(blog);
 });
 
 router.post("/create", isAuth, isAdmin, async(req: Request<{}, {}, { title: string; content: string; description?: string; }>, res: Response) => {
