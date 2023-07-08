@@ -10,10 +10,10 @@ const app: Express = express();
 app.use(express.json());
 config({"path": ".env"})
 
+app.use(cors());
 app.use("/portfolio", PortfolioRouter);
 app.use("/blog", BlogRouter);
 app.use("/auth", AuthRouter);
-app.use(cors());
 
 (async () => {
     await PreRun();

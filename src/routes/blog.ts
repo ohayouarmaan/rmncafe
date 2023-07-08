@@ -7,6 +7,7 @@ const router = Router();
 router.get("/", async (req: Request<{}, {}, {},{from: string; to: string;}>, res: Response) => {
     const from = parseInt(req.query.from);
     const to = parseInt(req.query.to);
+    console.log(from, to);
     const blogs = await Blog.find({})
                             .skip(from)
                             .limit(to - from)
