@@ -9,7 +9,7 @@ import { config } from "dotenv";
 const app: Express = express();
 
 app.use(express.json());
-config({"path": ".env"})
+config({"path": "../.env"})
 
 app.use(cors());
 app.use("/portfolio", PortfolioRouter);
